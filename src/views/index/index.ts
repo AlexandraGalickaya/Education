@@ -32,6 +32,7 @@ class IndexComponent {
         document.location.href = '../login/login.html';
     }
     getCheckedCheckBoxes() {
+
         const checkbox1 = <HTMLInputElement>document.getElementById('checkbox1');
         const checkbox2 = <HTMLInputElement>document.getElementById('checkbox2');
         const checkbox3 = <HTMLInputElement>document.getElementById('checkbox3');
@@ -40,17 +41,14 @@ class IndexComponent {
         let checkboxes = document.getElementsByClassName('box');
         let checkboxesChecked: Array<HTMLInputElement> = [];
         let checkboxesValue: string;
+        let count = 0;
         checkboxesChecked.push(checkbox1, checkbox2, checkbox3, checkbox4, checkbox5);
         for (let i = 0; i < checkboxes.length; i++) {
             if (checkboxesChecked[i].checked) {
+
                 checkboxesValue = checkboxesChecked[i].id;
-                alert(checkboxesValue);
-            }
-        }
-        let count = 0;
-        for (let i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].className == "box" && checkboxes[i].checked == true) {
                 count++;
+                alert(checkboxesValue);
             }
         }
         alert(count);

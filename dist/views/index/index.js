@@ -38,17 +38,13 @@ var IndexComponent = /** @class */ (function () {
         var checkboxes = document.getElementsByClassName('box');
         var checkboxesChecked = [];
         var checkboxesValue;
+        var count = 0;
         checkboxesChecked.push(checkbox1, checkbox2, checkbox3, checkbox4, checkbox5);
         for (var i = 0; i < checkboxes.length; i++) {
             if (checkboxesChecked[i].checked) {
                 checkboxesValue = checkboxesChecked[i].id;
-                alert(checkboxesValue);
-            }
-        }
-        var count = 0;
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].className == "box" && checkboxes[i].checked == true) {
                 count++;
+                alert(checkboxesValue);
             }
         }
         alert(count);
