@@ -2,7 +2,6 @@ import { User } from "../../models/index";
 
 class IndexComponent {
     register() {
-
         const inputEmail = <HTMLInputElement>document.getElementById('emailInput')
         const inputPassword = <HTMLInputElement>document.getElementById('passwordInput')
         const man = <HTMLInputElement>document.getElementById('man')
@@ -12,11 +11,11 @@ class IndexComponent {
         genderArray.push(man, women);
         console.log(genderArray);
         for (let i = 0; i < genderArray.length; i++) {
-            if (genderArray[i].checked ) {
+            if (genderArray[i].checked) {
                 genderValue = genderArray[i].id;
             }
         }
-        let users: User[] = JSON.parse(localStorage.getItem('USERS'));        
+        let users: User[] = JSON.parse(localStorage.getItem('USERS'));
         if (!users) {
             users = [];
             localStorage.setItem('USERS', JSON.stringify(users));
@@ -26,9 +25,35 @@ class IndexComponent {
             email: inputEmail.value,
             password: inputPassword.value,
             gender: genderValue,
+            // quantity: quantityValue,
+
         });
         localStorage.setItem('USERS', JSON.stringify(users));
         document.location.href = '../login/login.html';
+    }
+    getCheckedCheckBoxes() {
+        const checkbox1 = <HTMLInputElement>document.getElementById('checkbox1');
+        const checkbox2 = <HTMLInputElement>document.getElementById('checkbox2');
+        const checkbox3 = <HTMLInputElement>document.getElementById('checkbox3');
+        const checkbox4 = <HTMLInputElement>document.getElementById('checkbox4');
+        const checkbox5 = <HTMLInputElement>document.getElementById('checkbox5');
+        let checkboxes = document.getElementsByClassName('box');
+        let checkboxesChecked: Array<HTMLInputElement> = [];
+        let checkboxesValue: string;
+        checkboxesChecked.push(checkbox1, checkbox2, checkbox3, checkbox4, checkbox5);
+        for (let i = 0; i < checkboxes.length; i++) {
+            if (checkboxesChecked[i].checked) {
+                checkboxesValue = checkboxesChecked[i].id;
+                alert(checkboxesValue);
+            }
+        }
+        let count = 0;
+        for (let i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].className == "box" && checkboxes[i].checked == true) {
+                count++;
+            }
+        }
+        alert(count);
     }
 }
 

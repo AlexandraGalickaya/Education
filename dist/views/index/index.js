@@ -29,6 +29,30 @@ var IndexComponent = /** @class */ (function () {
         localStorage.setItem('USERS', JSON.stringify(users));
         document.location.href = '../login/login.html';
     };
+    IndexComponent.prototype.getCheckedCheckBoxes = function () {
+        var checkbox1 = document.getElementById('checkbox1');
+        var checkbox2 = document.getElementById('checkbox2');
+        var checkbox3 = document.getElementById('checkbox3');
+        var checkbox4 = document.getElementById('checkbox4');
+        var checkbox5 = document.getElementById('checkbox5');
+        var checkboxes = document.getElementsByClassName('box');
+        var checkboxesChecked = [];
+        var checkboxesValue;
+        checkboxesChecked.push(checkbox1, checkbox2, checkbox3, checkbox4, checkbox5);
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxesChecked[i].checked) {
+                checkboxesValue = checkboxesChecked[i].id;
+                alert(checkboxesValue);
+            }
+        }
+        var count = 0;
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].className == "box" && checkboxes[i].checked == true) {
+                count++;
+            }
+        }
+        alert(count);
+    };
     return IndexComponent;
 }());
 var indexComponent = new IndexComponent;

@@ -11,11 +11,16 @@
 
     <input type="text" id="emailInput" required="" placeholder="Email">
     <input type="password" id="passwordInput" required="" placeholder="Password">
-    <label></label><input type="radio" name="fames" id="man" value="man">M</label>
-    <label></label><input type="radio" name="fames" id="women" value="women">W</label>
+    <label><input type="radio" name="fames" id="man" value="man">M</label>
+    <label><input type="radio" name="fames" id="women" value="women">W</label>
     <a type="button" onclick="indexComponent.register()">Register</a>
 
-
+    <label><input class="box" type="checkbox" name="Sum" value="1" id="checkbox1" >1</label>
+    <label><input class="box" type="checkbox" name="Sum" value="2" id="checkbox2" />2</label>
+    <label><input class="box" type="checkbox" name="Sum" value="3" id="checkbox3">3</label>
+    <label><input class="box" type="checkbox" name="Sum" value="4" id="checkbox4">4</label>
+    <label><input class="box" type="checkbox" name="Sum" value="5" id="checkbox5">5</label>
+    <button onclick="indexComponent.getCheckedCheckBoxes()"> Кто выбран? </button>
 </body>
 
 </html>
