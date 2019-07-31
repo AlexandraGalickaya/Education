@@ -1,4 +1,4 @@
-import { User } from "../../models/index";
+import { IUser } from "../../models/index";
 
 class LoginComponent {
     private inputEmail: HTMLInputElement;
@@ -8,7 +8,7 @@ class LoginComponent {
         this.inputEmail = <HTMLInputElement>document.getElementById('emailInput')
         this.inputPassword = <HTMLInputElement>document.getElementById('passwordInput')
 
-        let users: User[] = JSON.parse(localStorage.getItem('USERS'));
+        let users: IUser[] = JSON.parse(localStorage.getItem('USERS'));
      
 
         for (let i = 0; i < users.length; i++) {

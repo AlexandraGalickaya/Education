@@ -1,6 +1,12 @@
-import { User } from "../../models/index";
+import { IUser } from "../../models/index";
+import { DataService } from "../../service/data.service";
 
-class IndexComponent {
+
+export class IndexComponent {
+    private dataService: DataService
+    constructor( ){
+        this.dataService = new DataService;
+    }
     register() {
         const inputEmail = <HTMLInputElement>document.getElementById('emailInput')
         const inputPassword = <HTMLInputElement>document.getElementById('passwordInput')
@@ -15,7 +21,7 @@ class IndexComponent {
                 genderValue = genderArray[i].id;
             }
         }
-        let users: User[] = JSON.parse(localStorage.getItem('USERS'));
+        let users: IUser[] = this.dataService.getFromLocalStorage('USER');
         if (!users) {
             users = [];
             localStorage.setItem('USERS', JSON.stringify(users));
@@ -25,12 +31,11 @@ class IndexComponent {
             email: inputEmail.value,
             password: inputPassword.value,
             gender: genderValue,
-            // quantity: quantityValue,
-
         });
         localStorage.setItem('USERS', JSON.stringify(users));
         document.location.href = '../login/login.html';
     }
+
     getCheckedCheckBoxes() {
 
         const checkbox1 = <HTMLInputElement>document.getElementById('checkbox1');
@@ -53,6 +58,7 @@ class IndexComponent {
         }
         alert(count);
     }
+
 }
 
-let indexComponent: IndexComponent = new IndexComponent;
+let indexComponent: IndexComponent = new IndexComponent();
