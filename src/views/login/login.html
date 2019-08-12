@@ -9,10 +9,14 @@
 </head>
 
 <body>
+    <form name='form' onsubmit='return validate()'>
+        <input type="text" id="emailInput" required="" placeholder="Email">
+        <input type="password" id="passwordInput" required="" placeholder="Password">
+        <input type='submit' value='Отправить форму'>
+    </form>
 
-    <input type="text" id="emailInput" required="" placeholder="Email">
-    <input type="password" id="passwordInput" required="" placeholder="Password">
     <a type="button" onclick="loginComponent.login()" href="#">Login</a>
+
 
 
 </body>

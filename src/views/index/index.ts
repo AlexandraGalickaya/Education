@@ -1,12 +1,12 @@
 import { IUser } from "../../models/index";
-import { DataService } from "../../service/data.service";
+// import { DataService } from "../../service/data.service";
 
 
-export class IndexComponent {
-    private dataService: DataService
-    constructor( ){
-        this.dataService = new DataService;
-    }
+class IndexComponent {
+    // private dataService: DataService
+    // constructor( ){
+    //     this.dataService = new DataService;
+    // }
     register() {
         const inputEmail = <HTMLInputElement>document.getElementById('emailInput')
         const inputPassword = <HTMLInputElement>document.getElementById('passwordInput')
@@ -21,7 +21,7 @@ export class IndexComponent {
                 genderValue = genderArray[i].id;
             }
         }
-        let users: IUser[] = this.dataService.getFromLocalStorage('USER');
+        let users: IUser[] = JSON.parse(localStorage.getItem('USERS'));
         if (!users) {
             users = [];
             localStorage.setItem('USERS', JSON.stringify(users));
@@ -59,6 +59,7 @@ export class IndexComponent {
         alert(count);
     }
 
+    
 }
-
 let indexComponent: IndexComponent = new IndexComponent();
+

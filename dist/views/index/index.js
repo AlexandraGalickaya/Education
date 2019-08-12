@@ -1,8 +1,11 @@
-import { DataService } from "../../service/data.service";
+// import { DataService } from "../../service/data.service";
 var IndexComponent = /** @class */ (function () {
     function IndexComponent() {
-        this.dataService = new DataService;
     }
+    // private dataService: DataService
+    // constructor( ){
+    //     this.dataService = new DataService;
+    // }
     IndexComponent.prototype.register = function () {
         var inputEmail = document.getElementById('emailInput');
         var inputPassword = document.getElementById('passwordInput');
@@ -17,7 +20,7 @@ var IndexComponent = /** @class */ (function () {
                 genderValue = genderArray[i].id;
             }
         }
-        var users = this.dataService.getFromLocalStorage('USER');
+        var users = JSON.parse(localStorage.getItem('USERS'));
         if (!users) {
             users = [];
             localStorage.setItem('USERS', JSON.stringify(users));
@@ -53,6 +56,5 @@ var IndexComponent = /** @class */ (function () {
     };
     return IndexComponent;
 }());
-export { IndexComponent };
 var indexComponent = new IndexComponent();
 //# sourceMappingURL=index.js.map
