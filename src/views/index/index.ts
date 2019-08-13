@@ -1,14 +1,12 @@
 
-
-
 class IndexComponent {
     private dataService: DataService
     constructor() {
         this.dataService = new DataService;
     }
     register() {
-        const inputEmail = <HTMLInputElement>document.getElementById('emailInput')
-        const inputPassword = <HTMLInputElement>document.getElementById('passwordInput')
+        const inputName = <HTMLInputElement>document.getElementById('nameInput')
+        const inputAge = <HTMLInputElement>document.getElementById('ageInput')
         const man = <HTMLInputElement>document.getElementById('man')
         const women = <HTMLInputElement>document.getElementById('women');
         let genderArray: Array<HTMLInputElement> = [];
@@ -27,8 +25,8 @@ class IndexComponent {
             return;
         }
         users.push({
-            email: inputEmail.value,
-            password: inputPassword.value,
+            name: inputName.value,
+            age: inputAge.value,
             gender: genderValue,
         });
         localStorage.setItem('USERS', JSON.stringify(users));
@@ -58,21 +56,23 @@ class IndexComponent {
         alert(count);
     }
 
-    bubbleSort() {
-        // let persons = [15, 27, 6, 1, 0];
-        let persons = [{ name: "Ivan", age: 17 }, { name: "Mariya", age: 35 }, { name: "Oleksei", age: 73 }, { name: "Dima", age: 12 }];
-        for (let j = 0; j < persons.length; j++) {
-            for (let i = 0; i < persons.length; i++) {
-                if (persons[i] > persons[i + 1]) {
-                    let temp = persons[i];
-                    persons[i] = persons[i + 1];
-                    persons[i + 1] = temp;
 
-                }
-            }
-            console.log(persons);
-        }
-    }
+
+    // bubbleSort() {
+    //     // let persons = [15, 27, 6, 1, 0];
+    //     let persons = [{ name: "Ivan", age: 17 }, { name: "Mariya", age: 35 }, { name: "Oleksei", age: 73 }, { name: "Dima", age: 12 }];
+    //     for (let j = 0; j < persons.length; j++) {
+    //         for (let i = 0; i < persons.length; i++) {
+    //             if (persons[i] > persons[i + 1]) {
+    //                 let temp = persons[i];
+    //                 persons[i] = persons[i + 1];
+    //                 persons[i + 1] = temp;
+
+    //             }
+    //         }
+    //         console.log(persons);
+    //     }
+    // }
 
 
 }

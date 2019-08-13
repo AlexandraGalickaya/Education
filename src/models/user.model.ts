@@ -1,10 +1,7 @@
 interface IUser {
-    email: string;
-    password: string;
+    name: string;
+    age: string;
     gender: string;
     // quantity: string;
 }
-interface IPerson {
-    name: string;
-    age: string;
-}
+

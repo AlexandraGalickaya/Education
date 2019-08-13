@@ -3,8 +3,8 @@ var IndexComponent = /** @class */ (function () {
         this.dataService = new DataService;
     }
     IndexComponent.prototype.register = function () {
-        var inputEmail = document.getElementById('emailInput');
-        var inputPassword = document.getElementById('passwordInput');
+        var inputName = document.getElementById('nameInput');
+        var inputAge = document.getElementById('ageInput');
         var man = document.getElementById('man');
         var women = document.getElementById('women');
         var genderArray = [];
@@ -23,8 +23,8 @@ var IndexComponent = /** @class */ (function () {
             return;
         }
         users.push({
-            email: inputEmail.value,
-            password: inputPassword.value,
+            name: inputName.value,
+            age: inputAge.value,
             gender: genderValue,
         });
         localStorage.setItem('USERS', JSON.stringify(users));
@@ -49,20 +49,6 @@ var IndexComponent = /** @class */ (function () {
             }
         }
         alert(count);
-    };
-    IndexComponent.prototype.bubbleSort = function () {
-        // let persons = [15, 27, 6, 1, 0];
-        var persons = [{ name: "Ivan", age: 17 }, { name: "Mariya", age: 35 }, { name: "Oleksei", age: 73 }, { name: "Dima", age: 12 }];
-        for (var j = 0; j < persons.length; j++) {
-            for (var i = 0; i < persons.length; i++) {
-                if (persons[i] > persons[i + 1]) {
-                    var temp = persons[i];
-                    persons[i] = persons[i + 1];
-                    persons[i + 1] = temp;
-                }
-            }
-            console.log(persons);
-        }
     };
     return IndexComponent;
 }());

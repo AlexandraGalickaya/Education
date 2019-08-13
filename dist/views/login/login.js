@@ -2,13 +2,13 @@ var LoginComponent = /** @class */ (function () {
     function LoginComponent() {
     }
     LoginComponent.prototype.login = function () {
-        this.inputEmail = document.getElementById('emailInput');
-        this.inputPassword = document.getElementById('passwordInput');
+        this.inputName = document.getElementById('nameInput');
+        this.inputAge = document.getElementById('ageInput');
         var users = JSON.parse(localStorage.getItem('USERS'));
         for (var i = 0; i < users.length; i++) {
-            var email = users[i].email;
-            var password = users[i].password;
-            if ((this.inputEmail.value.toString().toLocaleLowerCase() == email.toLocaleLowerCase()) && (this.inputPassword.value.toString().toLocaleLowerCase() == password.toLocaleLowerCase())) {
+            var name_1 = users[i].name;
+            var age = users[i].age;
+            if ((this.inputName.value.toString().toLocaleLowerCase() == name_1.toLocaleLowerCase()) && (this.inputAge.value.toString().toLocaleLowerCase() == age.toLocaleLowerCase())) {
                 alert("User confirm:" + JSON.stringify(users[i]));
                 return;
             }
@@ -16,8 +16,8 @@ var LoginComponent = /** @class */ (function () {
         alert("Error");
     };
     LoginComponent.prototype.validate = function () {
-        var x = document.forms['form']['email'].value;
-        var y = document.forms['form']['password'].value;
+        var x = document.forms['form']['name'].value;
+        var y = document.forms['form']['age'].value;
         if (x == null || x == "") {
             {
                 alert("Имя обязательно должно быть введено");
@@ -31,9 +31,9 @@ var LoginComponent = /** @class */ (function () {
             }
         }
         var filter = (/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/);
-        if (!filter.test(this.inputPassword.value)) {
+        if (!filter.test(this.inputAge.value)) {
             alert('Please provide a valid password');
-            this.inputPassword.focus;
+            this.inputAge.focus;
             return false;
         }
     };

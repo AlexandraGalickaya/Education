@@ -1,20 +1,20 @@
 
 
 class LoginComponent {
-    private inputEmail: HTMLInputElement;
-    private inputPassword: HTMLInputElement;
+    private inputName: HTMLInputElement;
+    private inputAge: HTMLInputElement;
 
     login() {
-        this.inputEmail = <HTMLInputElement>document.getElementById('emailInput')
-        this.inputPassword = <HTMLInputElement>document.getElementById('passwordInput')
+        this.inputName = <HTMLInputElement>document.getElementById('nameInput')
+        this.inputAge = <HTMLInputElement>document.getElementById('ageInput')
 
         let users: IUser[] = JSON.parse(localStorage.getItem('USERS'));
 
 
         for (let i = 0; i < users.length; i++) {
-            let email = users[i].email;
-            let password = users[i].password;
-            if ((this.inputEmail.value.toString().toLocaleLowerCase() == email.toLocaleLowerCase()) && (this.inputPassword.value.toString().toLocaleLowerCase() == password.toLocaleLowerCase())) {
+            let name = users[i].name;
+            let age = users[i].age;
+            if ((this.inputName.value.toString().toLocaleLowerCase() == name.toLocaleLowerCase()) && (this.inputAge.value.toString().toLocaleLowerCase() == age.toLocaleLowerCase())) {
                 alert("User confirm:" + JSON.stringify(users[i]));
                 return;
             }
@@ -24,8 +24,8 @@ class LoginComponent {
     }
 
     validate() {
-        let x = document.forms['form']['email'].value;
-        let y = document.forms['form']['password'].value;
+        let x = document.forms['form']['name'].value;
+        let y = document.forms['form']['age'].value;
         if (x == null || x == "") {
             {
                 alert("Имя обязательно должно быть введено");
@@ -40,9 +40,9 @@ class LoginComponent {
             }
         }
         let filter = (/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/);
-        if (!filter.test(this.inputPassword.value)) {
+        if (!filter.test(this.inputAge.value)) {
             alert('Please provide a valid password');
-            this.inputPassword.focus;
+            this.inputAge.focus;
             return false;
         }
 
@@ -65,8 +65,9 @@ class LoginComponent {
 
     //             }
     //         }
-    //         console.log(persons);
-    //     }
+        
+    //     }    
+    //     console.log(persons);
     //     localStorage.setItem('PERSONS', JSON.stringify(persons));
 
     // }

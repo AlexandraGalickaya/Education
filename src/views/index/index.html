@@ -4,16 +4,22 @@
 <head>
     <meta charset="utf-8" />
     <title>TypeScript HTML App</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css"> 
+
     <script type="text/javascript" src="../../../dist/service/data.service.js"></script>
     <script type="text/javascript" src="../../../dist/views/index/index.js"></script>
-    
+    <script type="text/javascript" src="../../../dist/views/login/login.js"></script>
+    <script type="text/javascript" src="../../../dist/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../dist/libs/jQuery.min.js"></script>
+
 
 </head>
 
 <body>
 
-    <input type="text" id="emailInput" required="" placeholder="Email">
-    <input type="password" id="passwordInput" required="" placeholder="Password">
+    <input type="text" id="nameInput" required="" placeholder="Name">
+    <input type="text" id="ageInput" required="" placeholder="Age">
     <label><input type="radio" name="fames" id="man" value="man">M</label>
     <label><input type="radio" name="fames" id="women" value="women">W</label>
     <a type="button" onclick="indexComponent.register()">Register</a>
