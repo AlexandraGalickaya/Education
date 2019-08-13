@@ -15,6 +15,28 @@ var LoginComponent = /** @class */ (function () {
         }
         alert("Error");
     };
+    LoginComponent.prototype.validate = function () {
+        var x = document.forms['form']['email'].value;
+        var y = document.forms['form']['password'].value;
+        if (x == null || x == "") {
+            {
+                alert("Имя обязательно должно быть введено");
+                return false;
+            }
+        }
+        if (y == null || y == "") {
+            {
+                alert("Имя обязательно должно быть введено");
+                return false;
+            }
+        }
+        var filter = (/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/);
+        if (!filter.test(this.inputPassword.value)) {
+            alert('Please provide a valid password');
+            this.inputPassword.focus;
+            return false;
+        }
+    };
     return LoginComponent;
 }());
 var loginComponent = new LoginComponent();

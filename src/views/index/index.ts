@@ -1,12 +1,11 @@
-import { IUser } from "../../models/index";
-// import { DataService } from "../../service/data.service";
+
 
 
 class IndexComponent {
-    // private dataService: DataService
-    // constructor( ){
-    //     this.dataService = new DataService;
-    // }
+    private dataService: DataService
+    constructor() {
+        this.dataService = new DataService;
+    }
     register() {
         const inputEmail = <HTMLInputElement>document.getElementById('emailInput')
         const inputPassword = <HTMLInputElement>document.getElementById('passwordInput')
@@ -21,7 +20,7 @@ class IndexComponent {
                 genderValue = genderArray[i].id;
             }
         }
-        let users: IUser[] = JSON.parse(localStorage.getItem('USERS'));
+        let users: IUser[] = this.dataService.getFromLocalStorage('USER');
         if (!users) {
             users = [];
             localStorage.setItem('USERS', JSON.stringify(users));
@@ -59,7 +58,24 @@ class IndexComponent {
         alert(count);
     }
 
-    
+    bubbleSort() {
+        // let persons = [15, 27, 6, 1, 0];
+        let persons = [{ name: "Ivan", age: 17 }, { name: "Mariya", age: 35 }, { name: "Oleksei", age: 73 }, { name: "Dima", age: 12 }];
+        for (let j = 0; j < persons.length; j++) {
+            for (let i = 0; i < persons.length; i++) {
+                if (persons[i] > persons[i + 1]) {
+                    let temp = persons[i];
+                    persons[i] = persons[i + 1];
+                    persons[i + 1] = temp;
+
+                }
+            }
+            console.log(persons);
+        }
+    }
+
+
 }
+
 let indexComponent: IndexComponent = new IndexComponent();
 

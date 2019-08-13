@@ -4,8 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <title>TypeScript HTML App</title>
+    <!-- <link rel="stylesheet" href="src/css/bootstrap.min.css">
+    <link rel="stylesheet" href="src/css/style.css"> -->
+
+    <script type="text/javascript" src="../../../dist/service/data.service.js"></script>
     <script type="text/javascript" src="../../../dist/views/index/index.js"></script>
     <script type="text/javascript" src="../../../dist/views/login/login.js"></script>
+    <!-- <script type="text/javascript" src="../../../dist/css/bootstrap.min.js"></script> -->
 </head>
 
 <body>
@@ -16,8 +21,9 @@
     </form>
 
     <a type="button" onclick="loginComponent.login()" href="#">Login</a>
-
-
+    <!-- <button onclick="loginComponent.bubbleSort()"> Sort </button> -->
+    <input type="text" id="nameInput" required="" placeholder="Name">
+    <input type="text" id="ageInput" required="" placeholder="Age">
 
 </body>
 

@@ -1,4 +1,4 @@
-import { IUser } from "../../models/index";
+
 
 class LoginComponent {
     private inputEmail: HTMLInputElement;
@@ -47,5 +47,28 @@ class LoginComponent {
         }
 
     }
+    // bubbleSort() {
+    //     const inputName = <HTMLInputElement>document.getElementById('nameInput');
+    //     const inputAge = <HTMLInputElement>document.getElementById('ageInput');
+    //     let persons: IPerson[] = JSON.parse(localStorage.getItem('PERSONS'));
+      
+    //     persons.push({
+    //         name: inputName.value,
+    //         age: inputAge.value,
+    //     });
+    //     for (let j = 0; j < persons.length; j++) {
+    //         for (let i = 0; i < persons.length; i++) {
+    //             if (persons[i] > persons[i + 1]) {
+    //                 let temp = persons[i];
+    //                 persons[i] = persons[i + 1];
+    //                 persons[i + 1] = temp;
+
+    //             }
+    //         }
+    //         console.log(persons);
+    //     }
+    //     localStorage.setItem('PERSONS', JSON.stringify(persons));
+
+    // }
 }
 let loginComponent: LoginComponent = new LoginComponent();

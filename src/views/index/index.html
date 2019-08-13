@@ -4,7 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <title>TypeScript HTML App</title>
+    <script type="text/javascript" src="../../../dist/service/data.service.js"></script>
     <script type="text/javascript" src="../../../dist/views/index/index.js"></script>
+    
+
 </head>
 
 <body>
@@ -21,7 +24,7 @@
     <label><input class="box" type="checkbox" name="Sum" value="4" id="checkbox4">4</label>
     <label><input class="box" type="checkbox" name="Sum" value="5" id="checkbox5">5</label>
     <button onclick="indexComponent.getCheckedCheckBoxes()"> Кто выбран? </button>
-
-</body>
+    <button onclick="indexComponent.bubbleSort()"> Sort </button>
+    </body>
 
 </html>
