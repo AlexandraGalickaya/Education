@@ -1,0 +1,83 @@
+body {
+  position: relative;
+}
+
+.lineinput {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  border: 1px solid green;
+}
+.lineblock {
+  margin-right: 35px;
+  border: 2px solid royalblue;
+  color: #00008b;
+  border-radius: 15px;
+  height: 35px;
+  width: 20%;
+  padding: 0 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.radioinput {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.radioblock {
+  margin-right: 25px;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #00ced1;
+}
+.button-register {
+  position: absolute;
+  right: 20%;
+  top: 17%;
+  height: 35px;
+  width: 100px;
+  padding: 5px 20px;
+  background: #98fb98;
+  color: #2e8b57;
+}
+
+a {
+  color: #2e8b57;
+}
+.box-block {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.box-container {
+  margin-right: 25px;
+  font-size: 22px;
+  color: #000080;
+}
+.click-button {
+  position: absolute;
+  right: 35%;
+  top: 84%;
+  height: 23px;
+  width: 100px;
+  font-size: 13px;
+  padding: 0 0;
+  background: #98fb98;
+  color: #000080;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+  border: 2px solid #00008b;
+  border-radius: 5px;
+}
+.sort-button {
+  position: absolute;
+  right: 15%;
+  top: 19%;
+  height: 30px;
+  width: 60px;
+  background: #98fb98;
+  color: #2e8b57;
+  border: 1px solid #00008b;
+  border-radius: 5px;
+}

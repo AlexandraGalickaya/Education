@@ -1,9 +1,9 @@
 
 class IndexComponent {
-    private dataService: DataService
-    constructor() {
-        this.dataService = new DataService;
-    }
+    // private dataService: DataService
+    // constructor() {
+    //     this.dataService = new DataService;
+    // }
     register() {
         const inputName = <HTMLInputElement>document.getElementById('nameInput')
         const inputAge = <HTMLInputElement>document.getElementById('ageInput')
@@ -18,7 +18,7 @@ class IndexComponent {
                 genderValue = genderArray[i].id;
             }
         }
-        let users: IUser[] = this.dataService.getFromLocalStorage('USER');
+        let users: IUser[] = JSON.parse(localStorage.getItem('USERS'));
         if (!users) {
             users = [];
             localStorage.setItem('USERS', JSON.stringify(users));
@@ -34,7 +34,7 @@ class IndexComponent {
     }
 
     getCheckedCheckBoxes() {
-
+        
         const checkbox1 = <HTMLInputElement>document.getElementById('checkbox1');
         const checkbox2 = <HTMLInputElement>document.getElementById('checkbox2');
         const checkbox3 = <HTMLInputElement>document.getElementById('checkbox3');
@@ -54,6 +54,10 @@ class IndexComponent {
             }
         }
         alert(count);
+    }
+
+    bubbleSort(){
+        
     }
 
 

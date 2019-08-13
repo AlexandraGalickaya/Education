@@ -1,7 +1,10 @@
 var IndexComponent = /** @class */ (function () {
     function IndexComponent() {
-        this.dataService = new DataService;
     }
+    // private dataService: DataService
+    // constructor() {
+    //     this.dataService = new DataService;
+    // }
     IndexComponent.prototype.register = function () {
         var inputName = document.getElementById('nameInput');
         var inputAge = document.getElementById('ageInput');
@@ -16,7 +19,7 @@ var IndexComponent = /** @class */ (function () {
                 genderValue = genderArray[i].id;
             }
         }
-        var users = this.dataService.getFromLocalStorage('USER');
+        var users = JSON.parse(localStorage.getItem('USERS'));
         if (!users) {
             users = [];
             localStorage.setItem('USERS', JSON.stringify(users));
@@ -49,6 +52,8 @@ var IndexComponent = /** @class */ (function () {
             }
         }
         alert(count);
+    };
+    IndexComponent.prototype.bubbleSort = function () {
     };
     return IndexComponent;
 }());

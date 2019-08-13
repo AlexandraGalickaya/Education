@@ -5,32 +5,37 @@
     <meta charset="utf-8" />
     <title>TypeScript HTML App</title>
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/style.css"> 
 
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="text/javascript" src="../../../dist/libs/jQuery.min.js"></script>
     <script type="text/javascript" src="../../../dist/service/data.service.js"></script>
     <script type="text/javascript" src="../../../dist/views/index/index.js"></script>
     <script type="text/javascript" src="../../../dist/views/login/login.js"></script>
     <script type="text/javascript" src="../../../dist/libs/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../../dist/libs/jQuery.min.js"></script>
 
 
 </head>
 
 <body>
+    <div class="lineinput">
+        <input class="lineblock" type="text" id="nameInput" required="" placeholder="Name">
+        <input class="lineblock" type="text" id="ageInput" required="" placeholder="Age">
+    </div>
+    <div class="radioinput">
+        <label class="radioblock"><input type="radio" name="fames" id="man" value="man">M</label>
+        <label class="radioblock"><input type="radio" name="fames" id="women" value="women">W</label>
+    </div>
+    <a class="button-register" type="button" onclick="indexComponent.register()">Register</a>
+    <div class="box-block">
+        <label class="box-container"><input class="box" type="checkbox" name="Sum" value="1" id="checkbox1">1</label>
+        <label class="box-container"><input class="box" type="checkbox" name="Sum" value="2" id="checkbox2" />2</label>
+        <label class="box-container"><input class="box" type="checkbox" name="Sum" value="3" id="checkbox3">3</label>
+        <label class="box-container"><input class="box" type="checkbox" name="Sum" value="4" id="checkbox4">4</label>
+        <label class="box-container"><input class="box" type="checkbox" name="Sum" value="5" id="checkbox5">5</label>
+    </div>
+    <button class="click-button" onclick="indexComponent.getCheckedCheckBoxes()"> Кто выбран? </button>
+    <button class="sort-button" onclick="indexComponent.bubbleSort()"> Sort </button>
 
-    <input type="text" id="nameInput" required="" placeholder="Name">
-    <input type="text" id="ageInput" required="" placeholder="Age">
-    <label><input type="radio" name="fames" id="man" value="man">M</label>
-    <label><input type="radio" name="fames" id="women" value="women">W</label>
-    <a type="button" onclick="indexComponent.register()">Register</a>
-
-    <label><input class="box" type="checkbox" name="Sum" value="1" id="checkbox1" >1</label>
-    <label><input class="box" type="checkbox" name="Sum" value="2" id="checkbox2" />2</label>
-    <label><input class="box" type="checkbox" name="Sum" value="3" id="checkbox3">3</label>
-    <label><input class="box" type="checkbox" name="Sum" value="4" id="checkbox4">4</label>
-    <label><input class="box" type="checkbox" name="Sum" value="5" id="checkbox5">5</label>
-    <button onclick="indexComponent.getCheckedCheckBoxes()"> Кто выбран? </button>
-    <button onclick="indexComponent.bubbleSort()"> Sort </button>
-    </body>
+</body>
 
 </html>
