@@ -4,6 +4,9 @@ class IndexComponent {
     // constructor() {
     //     this.dataService = new DataService;
     // }
+    public onChangeChoteTam(vale:number){
+        
+    }
     register() {
         const inputName = <HTMLInputElement>document.getElementById('nameInput')
         const inputAge = <HTMLInputElement>document.getElementById('ageInput')
@@ -26,15 +29,17 @@ class IndexComponent {
         }
         users.push({
             name: inputName.value,
-            age: inputAge.value,
+            age: parseFloat(inputAge.value),
             gender: genderValue,
         });
+        console.log();
+        
         localStorage.setItem('USERS', JSON.stringify(users));
         document.location.href = '../login/login.html';
     }
 
     getCheckedCheckBoxes() {
-        
+
         const checkbox1 = <HTMLInputElement>document.getElementById('checkbox1');
         const checkbox2 = <HTMLInputElement>document.getElementById('checkbox2');
         const checkbox3 = <HTMLInputElement>document.getElementById('checkbox3');
@@ -47,7 +52,6 @@ class IndexComponent {
         checkboxesChecked.push(checkbox1, checkbox2, checkbox3, checkbox4, checkbox5);
         for (let i = 0; i < checkboxes.length; i++) {
             if (checkboxesChecked[i].checked) {
-
                 checkboxesValue = checkboxesChecked[i].id;
                 count++;
                 alert(checkboxesValue);
@@ -56,9 +60,33 @@ class IndexComponent {
         alert(count);
     }
 
-    bubbleSort(){
-        
+    bubbleSort() {
+  
+        let users: IUser[] = JSON.parse(localStorage.getItem('USERS'));
+      
+        for (let j = 0; j < users.length; j++) {
+            for (let i = 0; i < users.length-j-1; i++) {
+            
+                if (users[i].age > users[i + 1].age) {
+                    let temp = users[i];
+                    users[i] = users[i + 1];
+                    users[i + 1] = temp;
+                }
+            }
+         
+        }
+    
+        console.log(users);  
+        for(let i=0; i<users.length;i++){
+            let user = users[i];
+            document.getElementById('result').innerHTML += user.name + " " + user.age + "</br>";
+
+        }
     }
+
+
+
+
 
 
 

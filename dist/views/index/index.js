@@ -5,6 +5,8 @@ var IndexComponent = /** @class */ (function () {
     // constructor() {
     //     this.dataService = new DataService;
     // }
+    IndexComponent.prototype.onChangeChoteTam = function (vale) {
+    };
     IndexComponent.prototype.register = function () {
         var inputName = document.getElementById('nameInput');
         var inputAge = document.getElementById('ageInput');
@@ -27,9 +29,10 @@ var IndexComponent = /** @class */ (function () {
         }
         users.push({
             name: inputName.value,
-            age: inputAge.value,
+            age: parseFloat(inputAge.value),
             gender: genderValue,
         });
+        console.log();
         localStorage.setItem('USERS', JSON.stringify(users));
         document.location.href = '../login/login.html';
     };
@@ -54,6 +57,21 @@ var IndexComponent = /** @class */ (function () {
         alert(count);
     };
     IndexComponent.prototype.bubbleSort = function () {
+        var users = JSON.parse(localStorage.getItem('USERS'));
+        for (var j = 0; j < users.length; j++) {
+            for (var i = 0; i < users.length - j - 1; i++) {
+                if (users[i].age > users[i + 1].age) {
+                    var temp = users[i];
+                    users[i] = users[i + 1];
+                    users[i + 1] = temp;
+                }
+            }
+        }
+        console.log(users);
+        for (var i = 0; i < users.length; i++) {
+            var user = users[i];
+            document.getElementById('result').innerHTML += user.name + " " + user.age + "</br>";
+        }
     };
     return IndexComponent;
 }());

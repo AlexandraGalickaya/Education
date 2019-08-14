@@ -14,7 +14,7 @@ class LoginComponent {
         for (let i = 0; i < users.length; i++) {
             let name = users[i].name;
             let age = users[i].age;
-            if ((this.inputName.value.toString().toLocaleLowerCase() == name.toLocaleLowerCase()) && (this.inputAge.value.toString().toLocaleLowerCase() == age.toLocaleLowerCase())) {
+            if ((this.inputName.value.toString().toLocaleLowerCase() == name.toLocaleLowerCase()) && (parseFloat(this.inputAge.value) == age)) {
                 alert("User confirm:" + JSON.stringify(users[i]));
                 return;
             }

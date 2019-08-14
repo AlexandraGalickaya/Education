@@ -1,6 +1,6 @@
 interface IUser {
     name: string;
-    age: string;
+    age: number;
     gender: string;
     // quantity: string;
 }

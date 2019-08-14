@@ -17,10 +17,12 @@
 </head>
 
 <body>
-    <div class="lineinput">
+    <div class="lineinput" >
         <input class="lineblock" type="text" id="nameInput" required="" placeholder="Name">
-        <input class="lineblock" type="text" id="ageInput" required="" placeholder="Age">
+        <input class="lineblock" type="number"  id="ageInput" required="" placeholder="Age">
     </div>
+    <div id="result"></div>
+
     <div class="radioinput">
         <label class="radioblock"><input type="radio" name="fames" id="man" value="man">M</label>
         <label class="radioblock"><input type="radio" name="fames" id="women" value="women">W</label>
@@ -34,7 +36,7 @@
         <label class="box-container"><input class="box" type="checkbox" name="Sum" value="5" id="checkbox5">5</label>
     </div>
     <button class="click-button" onclick="indexComponent.getCheckedCheckBoxes()"> Кто выбран? </button>
-    <button class="sort-button" onclick="indexComponent.bubbleSort()"> Sort </button>
+    <button class="sort-button" id="sort" type="button" onclick="indexComponent.bubbleSort()"> Sort </button>
 
 </body>
 

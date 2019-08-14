@@ -8,7 +8,7 @@ var LoginComponent = /** @class */ (function () {
         for (var i = 0; i < users.length; i++) {
             var name_1 = users[i].name;
             var age = users[i].age;
-            if ((this.inputName.value.toString().toLocaleLowerCase() == name_1.toLocaleLowerCase()) && (this.inputAge.value.toString().toLocaleLowerCase() == age.toLocaleLowerCase())) {
+            if ((this.inputName.value.toString().toLocaleLowerCase() == name_1.toLocaleLowerCase()) && (parseFloat(this.inputAge.value) == age)) {
                 alert("User confirm:" + JSON.stringify(users[i]));
                 return;
             }
