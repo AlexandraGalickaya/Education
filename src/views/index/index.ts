@@ -4,8 +4,8 @@ class IndexComponent {
     // constructor() {
     //     this.dataService = new DataService;
     // }
-    public onChangeChoteTam(vale:number){
-        
+    public onChangeChoteTam(vale: number) {
+
     }
     register() {
         const inputName = <HTMLInputElement>document.getElementById('nameInput')
@@ -33,7 +33,7 @@ class IndexComponent {
             gender: genderValue,
         });
         console.log();
-        
+
         localStorage.setItem('USERS', JSON.stringify(users));
         document.location.href = '../login/login.html';
     }
@@ -61,52 +61,30 @@ class IndexComponent {
     }
 
     bubbleSort() {
-  
+
         let users: IUser[] = JSON.parse(localStorage.getItem('USERS'));
-      
+
         for (let j = 0; j < users.length; j++) {
-            for (let i = 0; i < users.length-j-1; i++) {
-            
+            for (let i = 0; i < users.length - j - 1; i++) {
+
                 if (users[i].age > users[i + 1].age) {
                     let temp = users[i];
                     users[i] = users[i + 1];
                     users[i + 1] = temp;
                 }
             }
-         
+
         }
-    
-        console.log(users);  
-        for(let i=0; i<users.length;i++){
+
+        console.log(users);
+        for (let i = 0; i < users.length; i++) {
             let user = users[i];
             document.getElementById('result').innerHTML += user.name + " " + user.age + "</br>";
 
         }
+        let x = String("Hello World");
+        console.log(x);
     }
-
-
-
-
-
-
-
-    // bubbleSort() {
-    //     // let persons = [15, 27, 6, 1, 0];
-    //     let persons = [{ name: "Ivan", age: 17 }, { name: "Mariya", age: 35 }, { name: "Oleksei", age: 73 }, { name: "Dima", age: 12 }];
-    //     for (let j = 0; j < persons.length; j++) {
-    //         for (let i = 0; i < persons.length; i++) {
-    //             if (persons[i] > persons[i + 1]) {
-    //                 let temp = persons[i];
-    //                 persons[i] = persons[i + 1];
-    //                 persons[i + 1] = temp;
-
-    //             }
-    //         }
-    //         console.log(persons);
-    //     }
-    // }
-
-
 }
 
 let indexComponent: IndexComponent = new IndexComponent();

@@ -72,6 +72,8 @@ var IndexComponent = /** @class */ (function () {
             var user = users[i];
             document.getElementById('result').innerHTML += user.name + " " + user.age + "</br>";
         }
+        var x = String("Hello World");
+        console.log(x);
     };
     return IndexComponent;
 }());
