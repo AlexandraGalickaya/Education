@@ -17,17 +17,22 @@
 </head>
 
 <body>
-    <div class="lineinput" >
-        <input class="lineblock" type="text" id="nameInput" required="" placeholder="Name">
-        <input class="lineblock" type="number"  id="ageInput" required="" placeholder="Age">
-    </div>
+    <form name="myForm" onsubmit="return  validateForm()" method="post">
+        <div class="lineinput">
+            <input class="lineblock" name="name" type="text" id="nameInput" placeholder="Name" required>
+             
+            <input class="lineblock" name="age" type="number" id="ageInput" placeholder="Age" required>
+            <a class="button-register" type="submit" onclick="indexComponent.register() ">Register</a>
+            <p id="demo"></p>
+        </div>
+    </form>
     <div id="result"></div>
 
     <div class="radioinput">
         <label class="radioblock"><input type="radio" name="fames" id="man" value="man">M</label>
         <label class="radioblock"><input type="radio" name="fames" id="women" value="women">W</label>
     </div>
-    <a class="button-register" type="button" onclick="indexComponent.register()">Register</a>
+
     <div class="box-block">
         <label class="box-container"><input class="box" type="checkbox" name="Sum" value="1" id="checkbox1">1</label>
         <label class="box-container"><input class="box" type="checkbox" name="Sum" value="2" id="checkbox2" />2</label>

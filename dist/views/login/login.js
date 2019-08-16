@@ -15,28 +15,6 @@ var LoginComponent = /** @class */ (function () {
         }
         alert("Error");
     };
-    LoginComponent.prototype.validate = function () {
-        var x = document.forms['form']['name'].value;
-        var y = document.forms['form']['age'].value;
-        if (x == null || x == "") {
-            {
-                alert("Имя обязательно должно быть введено");
-                return false;
-            }
-        }
-        if (y == null || y == "") {
-            {
-                alert("Имя обязательно должно быть введено");
-                return false;
-            }
-        }
-        var filter = (/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/);
-        if (!filter.test(this.inputAge.value)) {
-            alert('Please provide a valid password');
-            this.inputAge.focus;
-            return false;
-        }
-    };
     return LoginComponent;
 }());
 var loginComponent = new LoginComponent();

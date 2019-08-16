@@ -23,53 +23,6 @@ class LoginComponent {
         alert("Error");
     }
 
-    validate() {
-        let x = document.forms['form']['name'].value;
-        let y = document.forms['form']['age'].value;
-        if (x == null || x == "") {
-            {
-                alert("Имя обязательно должно быть введено");
-                return false;
-            }
 
-        }
-        if (y == null || y == "") {
-            {
-                alert("Имя обязательно должно быть введено");
-                return false;
-            }
-        }
-        let filter = (/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/);
-        if (!filter.test(this.inputAge.value)) {
-            alert('Please provide a valid password');
-            this.inputAge.focus;
-            return false;
-        }
-
-    }
-    // bubbleSort() {
-    //     const inputName = <HTMLInputElement>document.getElementById('nameInput');
-    //     const inputAge = <HTMLInputElement>document.getElementById('ageInput');
-    //     let persons: IPerson[] = JSON.parse(localStorage.getItem('PERSONS'));
-      
-    //     persons.push({
-    //         name: inputName.value,
-    //         age: inputAge.value,
-    //     });
-    //     for (let j = 0; j < persons.length; j++) {
-    //         for (let i = 0; i < persons.length; i++) {
-    //             if (persons[i] > persons[i + 1]) {
-    //                 let temp = persons[i];
-    //                 persons[i] = persons[i + 1];
-    //                 persons[i + 1] = temp;
-
-    //             }
-    //         }
-        
-    //     }    
-    //     console.log(persons);
-    //     localStorage.setItem('PERSONS', JSON.stringify(persons));
-
-    // }
 }
 let loginComponent: LoginComponent = new LoginComponent();

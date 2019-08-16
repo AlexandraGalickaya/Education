@@ -4,17 +4,28 @@ class IndexComponent {
     // constructor() {
     //     this.dataService = new DataService;
     // }
+    public  inputName: HTMLInputElement = <HTMLInputElement>document.getElementById('nameInput');
+    public inputAge: HTMLInputElement =  <HTMLInputElement>document.getElementById('ageInput');
     public onChangeChoteTam(vale: number) {
 
     }
+    public getValue(){
+        this.inputName = <HTMLInputElement>document.getElementById('nameInput');
+        this.inputAge =  <HTMLInputElement>document.getElementById('ageInput');
+    }
+
+    
     register() {
-        const inputName = <HTMLInputElement>document.getElementById('nameInput')
-        const inputAge = <HTMLInputElement>document.getElementById('ageInput')
+       this.getValue();
         const man = <HTMLInputElement>document.getElementById('man')
         const women = <HTMLInputElement>document.getElementById('women');
         let genderArray: Array<HTMLInputElement> = [];
         let genderValue: string;
         genderArray.push(man, women);
+        
+        
+        console.log(this.inputName.value)
+
         console.log(genderArray);
         for (let i = 0; i < genderArray.length; i++) {
             if (genderArray[i].checked) {
@@ -27,15 +38,17 @@ class IndexComponent {
             localStorage.setItem('USERS', JSON.stringify(users));
             return;
         }
+        this.validateForm();
         users.push({
-            name: inputName.value,
-            age: parseFloat(inputAge.value),
+            name: this.inputName.value,
+            age: parseFloat(this.inputAge.value),
             gender: genderValue,
         });
         console.log();
 
         localStorage.setItem('USERS', JSON.stringify(users));
-        document.location.href = '../login/login.html';
+
+        // document.location.href = '../login/login.html';
     }
 
     getCheckedCheckBoxes() {
@@ -75,17 +88,24 @@ class IndexComponent {
             }
 
         }
-
         console.log(users);
         for (let i = 0; i < users.length; i++) {
             let user = users[i];
             document.getElementById('result').innerHTML += user.name + " " + user.age + "</br>";
-
         }
-        let x = String("Hello World");
-        console.log(x);
+    }
+    validateForm() {
+        this.getValue();
+        console.log(this.inputName.value)
+
+        if (this.inputName.value === "") {
+            alert('*данное поле обязательно для заполнения');
+            return false;
+        }
+        if (this.inputAge.value === "") {
+            alert('*данное поле обязательно для заполнения');
+            return false;
+        }
     }
 }
-
 let indexComponent: IndexComponent = new IndexComponent();
-

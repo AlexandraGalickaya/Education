@@ -1,20 +1,26 @@
 var IndexComponent = /** @class */ (function () {
     function IndexComponent() {
+        // private dataService: DataService
+        // constructor() {
+        //     this.dataService = new DataService;
+        // }
+        this.inputName = document.getElementById('nameInput');
+        this.inputAge = document.getElementById('ageInput');
     }
-    // private dataService: DataService
-    // constructor() {
-    //     this.dataService = new DataService;
-    // }
     IndexComponent.prototype.onChangeChoteTam = function (vale) {
     };
+    IndexComponent.prototype.getValue = function () {
+        this.inputName = document.getElementById('nameInput');
+        this.inputAge = document.getElementById('ageInput');
+    };
     IndexComponent.prototype.register = function () {
-        var inputName = document.getElementById('nameInput');
-        var inputAge = document.getElementById('ageInput');
+        this.getValue();
         var man = document.getElementById('man');
         var women = document.getElementById('women');
         var genderArray = [];
         var genderValue;
         genderArray.push(man, women);
+        console.log(this.inputName.value);
         console.log(genderArray);
         for (var i = 0; i < genderArray.length; i++) {
             if (genderArray[i].checked) {
@@ -27,14 +33,15 @@ var IndexComponent = /** @class */ (function () {
             localStorage.setItem('USERS', JSON.stringify(users));
             return;
         }
+        this.validateForm();
         users.push({
-            name: inputName.value,
-            age: parseFloat(inputAge.value),
+            name: this.inputName.value,
+            age: parseFloat(this.inputAge.value),
             gender: genderValue,
         });
         console.log();
         localStorage.setItem('USERS', JSON.stringify(users));
-        document.location.href = '../login/login.html';
+        // document.location.href = '../login/login.html';
     };
     IndexComponent.prototype.getCheckedCheckBoxes = function () {
         var checkbox1 = document.getElementById('checkbox1');
@@ -72,8 +79,18 @@ var IndexComponent = /** @class */ (function () {
             var user = users[i];
             document.getElementById('result').innerHTML += user.name + " " + user.age + "</br>";
         }
-        var x = String("Hello World");
-        console.log(x);
+    };
+    IndexComponent.prototype.validateForm = function () {
+        this.getValue();
+        console.log(this.inputName.value);
+        if (this.inputName.value === "") {
+            alert('*данное поле обязательно для заполнения');
+            return false;
+        }
+        if (this.inputAge.value === "") {
+            alert('*данное поле обязательно для заполнения');
+            return false;
+        }
     };
     return IndexComponent;
 }());
