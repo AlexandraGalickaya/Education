@@ -1,20 +1,20 @@
 
 
 class LoginComponent {
-    private inputName: HTMLInputElement;
-    private inputAge: HTMLInputElement;
+    private inputEmail: HTMLInputElement;
+    private inputPassword: HTMLInputElement;
 
     login() {
-        this.inputName = <HTMLInputElement>document.getElementById('nameInput')
-        this.inputAge = <HTMLInputElement>document.getElementById('ageInput')
+        this.inputEmail = <HTMLInputElement>document.getElementById('emailInput')
+        this.inputPassword = <HTMLInputElement>document.getElementById('passwordInput')
 
         let users: IUser[] = JSON.parse(localStorage.getItem('USERS'));
 
 
         for (let i = 0; i < users.length; i++) {
-            let name = users[i].name;
-            let age = users[i].age;
-            if ((this.inputName.value.toString().toLocaleLowerCase() == name.toLocaleLowerCase()) && (parseFloat(this.inputAge.value) == age)) {
+            let email = users[i].email;
+            let password = users[i].password;
+            if ((this.inputEmail.value.toString().toLocaleLowerCase() == email.toLocaleLowerCase()) && (this.inputPassword.value) == password) {
                 alert("User confirm:" + JSON.stringify(users[i]));
                 return;
             }

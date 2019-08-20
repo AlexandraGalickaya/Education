@@ -81,3 +81,12 @@ a {
   border: 1px solid #00008b;
   border-radius: 5px;
 }
+.invalid {
+  border-color: red;
+}
+#error {
+  color: black;
+  position: absolute;
+  bottom: 50%;
+}
+

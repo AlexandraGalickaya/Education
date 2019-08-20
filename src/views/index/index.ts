@@ -6,6 +6,7 @@ class IndexComponent {
     // }
     public inputEmail: HTMLInputElement = <HTMLInputElement>document.getElementById('emailInput');
     public inputPassword: HTMLInputElement = <HTMLInputElement>document.getElementById('passwordInput');
+
     public onChangeChoteTam(vale: number) {
 
     }
@@ -13,8 +14,6 @@ class IndexComponent {
         this.inputEmail = <HTMLInputElement>document.getElementById('emailInput');
         this.inputPassword = <HTMLInputElement>document.getElementById('passwordInput');
     }
-
-
     register() {
         this.getValue();
         const man = <HTMLInputElement>document.getElementById('man')
@@ -79,14 +78,12 @@ class IndexComponent {
 
         for (let j = 0; j < users.length; j++) {
             for (let i = 0; i < users.length - j - 1; i++) {
-
                 if (users[i].password > users[i + 1].password) {
                     let temp = users[i];
                     users[i] = users[i + 1];
                     users[i + 1] = temp;
                 }
             }
-
         }
         console.log(users);
         for (let i = 0; i < users.length; i++) {
@@ -94,31 +91,49 @@ class IndexComponent {
             document.getElementById('result').innerHTML += user.email + " " + user.password + "</br>";
         }
     }
+
+    checkValidateEmail() {
+        this.getValue();
+        let error = document.getElementById('error');
+        console.log(error)
+        console.log(this.inputEmail.value);
+        console.log(this.inputPassword.value);
+        if (this.inputEmail.value === "") {
+            error.innerHTML = '*все поля должны быть заполнены';
+            return false;
+        }
+    }
+    checkValidatePassword() {
+        this.getValue();
+        let error = document.getElementById('error');
+        console.log(error)
+        console.log(this.inputEmail.value);
+        console.log(this.inputPassword.value);
+        if (this.inputPassword.value === "") {
+            error.innerHTML = '*все поля должны быть заполнены';
+            return false;
+        }
+    }
+
     validateForm() {
         this.getValue();
-        console.log(this.inputEmail.value)
-
-        if (this.inputEmail.value === "") {
-            alert('*данное поле обязательно для заполнения');
-            return false;
-        }
-        if (this.inputPassword.value === "") {
-            alert('*данное поле обязательно для заполнения');
-            return false;
-        }
+        let error = document.getElementById('error');
+        console.log(error)
+        console.log(this.inputEmail.value);
+        console.log(this.inputPassword.value);
         let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         if (!filter.test(this.inputEmail.value)) {
-            alert('Please provide a valid email address');
             this.inputEmail.focus;
+            error.innerHTML = 'Пожалуйста, введите правильный email.';
             return false;
         }
         let filterpassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
         if (!filterpassword.test(this.inputPassword.value)) {
-            alert('Error password');
             this.inputPassword.focus;
+            error.innerHTML = 'Пожалуйста, введите правильный password.';
             return false;
         }
-
     }
 }
+
 let indexComponent: IndexComponent = new IndexComponent();

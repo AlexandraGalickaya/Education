@@ -19,10 +19,11 @@
 <body>
     <form name="myForm" onsubmit="return  validateForm()" method="post">
         <div class="lineinput">
-            <input class="lineblock" name="email" type="text" id="emailInput" placeholder="Email">
-            <input class="lineblock" name="password" type="password" id="passwordInput" placeholder="Password">
+            <input class="lineblock" name="email" type="text" id="emailInput" onblur="indexComponent.checkValidateEmail()" placeholder="Email">
+            <input class="lineblock" name="password" type="password" id="passwordInput" onblur="indexComponent.checkValidatePassword()" placeholder="Password">
             <a class="button-register" type="submit" onclick="indexComponent.register() ">Register</a>
-            <p id="demo"></p>
+            <div id="error"></div>
+            <!-- <input type="button" class="button-validate" id="buttonValidate" onclick="validateForm()"> -->
         </div>
     </form>
     <div id="result"></div>

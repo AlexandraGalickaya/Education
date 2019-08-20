@@ -80,27 +80,44 @@ var IndexComponent = /** @class */ (function () {
             document.getElementById('result').innerHTML += user.email + " " + user.password + "</br>";
         }
     };
+    IndexComponent.prototype.checkValidateEmail = function () {
+        this.getValue();
+        var error = document.getElementById('error');
+        console.log(error);
+        console.log(this.inputEmail.value);
+        console.log(this.inputPassword.value);
+        if (this.inputEmail.value === "") {
+            error.innerHTML = '*все поля должны быть заполнены';
+            return false;
+        }
+    };
+    IndexComponent.prototype.checkValidatePassword = function () {
+        this.getValue();
+        var error = document.getElementById('error');
+        console.log(error);
+        console.log(this.inputEmail.value);
+        console.log(this.inputPassword.value);
+        if (this.inputPassword.value === "") {
+            error.innerHTML = '*все поля должны быть заполнены';
+            return false;
+        }
+    };
     IndexComponent.prototype.validateForm = function () {
         this.getValue();
+        var error = document.getElementById('error');
+        console.log(error);
         console.log(this.inputEmail.value);
-        if (this.inputEmail.value === "") {
-            alert('*данное поле обязательно для заполнения');
-            return false;
-        }
-        if (this.inputPassword.value === "") {
-            alert('*данное поле обязательно для заполнения');
-            return false;
-        }
+        console.log(this.inputPassword.value);
         var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         if (!filter.test(this.inputEmail.value)) {
-            alert('Please provide a valid email address');
             this.inputEmail.focus;
+            error.innerHTML = 'Пожалуйста, введите правильный email.';
             return false;
         }
         var filterpassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
         if (!filterpassword.test(this.inputPassword.value)) {
-            alert('Error password');
             this.inputPassword.focus;
+            error.innerHTML = 'Пожалуйста, введите правильный password.';
             return false;
         }
     };

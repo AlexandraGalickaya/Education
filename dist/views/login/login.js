@@ -2,13 +2,13 @@ var LoginComponent = /** @class */ (function () {
     function LoginComponent() {
     }
     LoginComponent.prototype.login = function () {
-        this.inputName = document.getElementById('nameInput');
-        this.inputAge = document.getElementById('ageInput');
+        this.inputEmail = document.getElementById('emailInput');
+        this.inputPassword = document.getElementById('passwordInput');
         var users = JSON.parse(localStorage.getItem('USERS'));
         for (var i = 0; i < users.length; i++) {
-            var name_1 = users[i].name;
-            var age = users[i].age;
-            if ((this.inputName.value.toString().toLocaleLowerCase() == name_1.toLocaleLowerCase()) && (parseFloat(this.inputAge.value) == age)) {
+            var email = users[i].email;
+            var password = users[i].password;
+            if ((this.inputEmail.value.toString().toLocaleLowerCase() == email.toLocaleLowerCase()) && (this.inputPassword.value) == password) {
                 alert("User confirm:" + JSON.stringify(users[i]));
                 return;
             }
