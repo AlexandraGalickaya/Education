@@ -4,27 +4,27 @@ class IndexComponent {
     // constructor() {
     //     this.dataService = new DataService;
     // }
-    public  inputName: HTMLInputElement = <HTMLInputElement>document.getElementById('nameInput');
-    public inputAge: HTMLInputElement =  <HTMLInputElement>document.getElementById('ageInput');
+    public inputEmail: HTMLInputElement = <HTMLInputElement>document.getElementById('emailInput');
+    public inputPassword: HTMLInputElement = <HTMLInputElement>document.getElementById('passwordInput');
     public onChangeChoteTam(vale: number) {
 
     }
-    public getValue(){
-        this.inputName = <HTMLInputElement>document.getElementById('nameInput');
-        this.inputAge =  <HTMLInputElement>document.getElementById('ageInput');
+    public getValue() {
+        this.inputEmail = <HTMLInputElement>document.getElementById('emailInput');
+        this.inputPassword = <HTMLInputElement>document.getElementById('passwordInput');
     }
 
-    
+
     register() {
-       this.getValue();
+        this.getValue();
         const man = <HTMLInputElement>document.getElementById('man')
         const women = <HTMLInputElement>document.getElementById('women');
         let genderArray: Array<HTMLInputElement> = [];
         let genderValue: string;
         genderArray.push(man, women);
-        
-        
-        console.log(this.inputName.value)
+
+
+        console.log(this.inputEmail.value)
 
         console.log(genderArray);
         for (let i = 0; i < genderArray.length; i++) {
@@ -40,8 +40,8 @@ class IndexComponent {
         }
         this.validateForm();
         users.push({
-            name: this.inputName.value,
-            age: parseFloat(this.inputAge.value),
+            email: this.inputEmail.value,
+            password: this.inputPassword.value,
             gender: genderValue,
         });
         console.log();
@@ -80,7 +80,7 @@ class IndexComponent {
         for (let j = 0; j < users.length; j++) {
             for (let i = 0; i < users.length - j - 1; i++) {
 
-                if (users[i].age > users[i + 1].age) {
+                if (users[i].password > users[i + 1].password) {
                     let temp = users[i];
                     users[i] = users[i + 1];
                     users[i + 1] = temp;
@@ -91,21 +91,34 @@ class IndexComponent {
         console.log(users);
         for (let i = 0; i < users.length; i++) {
             let user = users[i];
-            document.getElementById('result').innerHTML += user.name + " " + user.age + "</br>";
+            document.getElementById('result').innerHTML += user.email + " " + user.password + "</br>";
         }
     }
     validateForm() {
         this.getValue();
-        console.log(this.inputName.value)
+        console.log(this.inputEmail.value)
 
-        if (this.inputName.value === "") {
+        if (this.inputEmail.value === "") {
             alert('*данное поле обязательно для заполнения');
             return false;
         }
-        if (this.inputAge.value === "") {
+        if (this.inputPassword.value === "") {
             alert('*данное поле обязательно для заполнения');
             return false;
         }
+        let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!filter.test(this.inputEmail.value)) {
+            alert('Please provide a valid email address');
+            this.inputEmail.focus;
+            return false;
+        }
+        let filterpassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+        if (!filterpassword.test(this.inputPassword.value)) {
+            alert('Error password');
+            this.inputPassword.focus;
+            return false;
+        }
+
     }
 }
 let indexComponent: IndexComponent = new IndexComponent();
