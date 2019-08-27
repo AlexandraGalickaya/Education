@@ -6,7 +6,6 @@ class IndexComponent {
     // }
     public inputEmail: HTMLInputElement = <HTMLInputElement>document.getElementById('emailInput');
     public inputPassword: HTMLInputElement = <HTMLInputElement>document.getElementById('passwordInput');
-
     public onChangeChoteTam(vale: number) {
 
     }
@@ -21,8 +20,7 @@ class IndexComponent {
         let genderArray: Array<HTMLInputElement> = [];
         let genderValue: string;
         genderArray.push(man, women);
-
-
+        debugger
         console.log(this.inputEmail.value)
 
         console.log(genderArray);
@@ -37,6 +35,7 @@ class IndexComponent {
             localStorage.setItem('USERS', JSON.stringify(users));
             return;
         }
+
         this.validateForm();
         users.push({
             email: this.inputEmail.value,
@@ -134,6 +133,25 @@ class IndexComponent {
             return false;
         }
     }
+
+    myFunction() {
+        
+        let input, filter, ul, li, a, i, txtValue; 
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li');
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "block";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+
 }
 
 let indexComponent: IndexComponent = new IndexComponent();

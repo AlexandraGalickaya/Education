@@ -20,6 +20,7 @@ var IndexComponent = /** @class */ (function () {
         var genderArray = [];
         var genderValue;
         genderArray.push(man, women);
+        debugger;
         console.log(this.inputEmail.value);
         console.log(genderArray);
         for (var i = 0; i < genderArray.length; i++) {
@@ -119,6 +120,23 @@ var IndexComponent = /** @class */ (function () {
             this.inputPassword.focus;
             error.innerHTML = 'Пожалуйста, введите правильный password.';
             return false;
+        }
+    };
+    IndexComponent.prototype.myFunction = function () {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li');
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "block";
+            }
+            else {
+                li[i].style.display = "none";
+            }
         }
     };
     return IndexComponent;

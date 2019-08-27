@@ -19,11 +19,12 @@
 <body>
     <form name="myForm" onsubmit="return  validateForm()" method="post">
         <div class="lineinput">
-            <input class="lineblock" name="email" type="text" id="emailInput" onblur="indexComponent.checkValidateEmail()" placeholder="Email">
-            <input class="lineblock" name="password" type="password" id="passwordInput" onblur="indexComponent.checkValidatePassword()" placeholder="Password">
-            <a class="button-register" type="submit" onclick="indexComponent.register() ">Register</a>
+            <input class="lineblock" name="email" type="text" id="emailInput"
+                onblur="indexComponent.checkValidateEmail()" placeholder="Email">
+            <input class="lineblock" name="password" type="password" id="passwordInput"
+                onblur="indexComponent.checkValidatePassword()" placeholder="Password">
+            <a class="button-register" type="submit" onclick="indexComponent.register()">Register</a>
             <div id="error"></div>
-            <!-- <input type="button" class="button-validate" id="buttonValidate" onclick="validateForm()"> -->
         </div>
     </form>
     <div id="result"></div>
@@ -42,6 +43,20 @@
     </div>
     <button class="click-button" onclick="indexComponent.getCheckedCheckBoxes()"> Кто выбран? </button>
     <button class="sort-button" id="sort" type="button" onclick="indexComponent.bubbleSort()"> Sort </button>
+    <input type="text" id="myInput" onkeyup="indexComponent.myFunction()" placeholder="Search for names..">
+
+    <ul id="myUL">
+        <li><a href="#">Adele</a></li>
+        <li><a href="#">Agnes</a></li>
+
+        <li><a href="#">Billy</a></li>
+        <li><a href="#">Bob</a></li>
+
+        <li><a href="#">Calvin</a></li>
+        <li><a href="#">Christina</a></li>
+        <li><a href="#">Cindy</a></li>
+    </ul>
+
 
 </body>
 
