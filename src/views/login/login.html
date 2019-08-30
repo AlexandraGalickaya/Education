@@ -4,20 +4,28 @@
 <head>
     <meta charset="utf-8" />
     <title>TypeScript HTML App</title>
-
-
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="text/javascript" src="../../../dist/libs/jQuery.min.js"></script>
     <script type="text/javascript" src="../../../dist/service/data.service.js"></script>
     <script type="text/javascript" src="../../../dist/views/index/index.js"></script>
-
+    <script type="text/javascript" src="../../../dist/views/login/login.js"></script>
+    <script type="text/javascript" src="../../../dist/views/datelocal/datelocal.js"></script>
+    <script type="text/javascript" src="../../../dist/libs/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <input type="text" id="emailInput" placeholder="Email">
-    <input type="password" id="passwordInput" placeholder="Password">
-    <input type='submit' value='Отправить форму'>
-    <a type="button" onclick="loginComponent.login()" href="#">Login</a>
-
-
+    <form class="nameForm" name="myForm" method="post">
+        <div class="lineinput">
+            <h3 class="type">LOGIN</h3>
+            <input class="lineblock" name="email" type="text" id="emailInput" placeholder="Email">
+            <input class="lineblock" name="password" type="password" id="passwordInput" placeholder="Password">
+            <button class="button-register" type="button" onclick="loginComponent.validateEmail()">LOGIN</button>
+            <div id="error"></div>
+            <div id="error-block"></div>
+            <div id="result"></div>
+        </div>
+    </form>
 
 </body>
 

@@ -1,19 +1,17 @@
 var LoginComponent = /** @class */ (function () {
     function LoginComponent() {
-    }
-    LoginComponent.prototype.login = function () {
         this.inputEmail = document.getElementById('emailInput');
-        this.inputPassword = document.getElementById('passwordInput');
+    }
+    LoginComponent.prototype.validateEmail = function () {
+        var error = document.getElementById('error');
         var users = JSON.parse(localStorage.getItem('USERS'));
         for (var i = 0; i < users.length; i++) {
             var email = users[i].email;
-            var password = users[i].password;
-            if ((this.inputEmail.value.toString().toLocaleLowerCase() == email.toLocaleLowerCase()) && (this.inputPassword.value) == password) {
-                alert("User confirm:" + JSON.stringify(users[i]));
+            if (this.inputEmail.value.toString().toLocaleLowerCase() == email.toLocaleLowerCase()) {
+                error.innerHTML = '*такой Email существует';
                 return;
             }
         }
-        alert("Error");
     };
     return LoginComponent;
 }());

@@ -1,127 +1,136 @@
-body {
-  position: relative;
+.type {
+  padding: 25px 0;
+  font-family: monospace;
+  font-size: 35px;
 }
 
 .lineinput {
   display: flex;
-  justify-content: center;
-  padding: 40px;
-  border: 1px solid green;
+  flex-direction: column;
+  align-items: center;
+  padding: 10%;
 }
+
 .lineblock {
-  margin-right: 35px;
-  border: 2px solid royalblue;
-  color: #00008b;
-  border-radius: 15px;
-  height: 35px;
-  width: 20%;
-  padding: 0 25px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.radioinput {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-.radioblock {
-  margin-right: 25px;
-  font-size: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #00ced1;
-}
-.button-register {
-  position: absolute;
-  right: 20%;
-  top: 17%;
-  height: 35px;
-  width: 100px;
-  padding: 5px 20px;
-  background: #98fb98;
-  color: #2e8b57;
-}
-
-a {
-  color: #2e8b57;
-}
-.box-block {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-.box-container {
-  margin-right: 25px;
-  font-size: 22px;
-  color: #000080;
-}
-.click-button {
-  position: absolute;
-  right: 35%;
-  top: 84%;
-  height: 23px;
-  width: 100px;
-  font-size: 13px;
-  padding: 0 0;
-  background: #98fb98;
-  color: #000080;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 15px;
+  width: 25%;
+  height: 45px;
+  padding: 0 20px;
+  font-family: monospace;
+  background: #f8f8ff;
+  color: #a9a9a9;
+  font-size: 16px;
   font-weight: 500;
-  border: 2px solid #00008b;
-  border-radius: 5px;
+  border: 1px solid #a9a9a9;
 }
-.sort-button {
-  position: absolute;
-  right: 15%;
-  top: 19%;
-  height: 30px;
-  width: 60px;
-  background: #98fb98;
-  color: #2e8b57;
-  border: 1px solid #00008b;
-  border-radius: 5px;
+
+.button-register {
+  width: 25%;
+  height: 45px;
+  text-align: center;
+  font-family: monospace;
+  background: #4169e1;
+  color: white;
+  font-size: 23px;
+  border: none;
 }
-.invalid {
-  border-color: red;
+.radioblock {
+  font-family: monospace;
+  font-size: 25px;
+  padding: 0px 10px;
+}
+.nameForm {
+  position: relative;
 }
 #error {
-  color: black;
   position: absolute;
-  bottom: 50%;
+  right: 26%;
+  top: 45%;
+  color: red;
 }
-* {
-  box-sizing: border-box;
+#error-block {
+  position: absolute;
+  right: 26%;
+  top: 55%;
+  color: red;
 }
-
-#myInput {
-  background-image: url('../css/searchicon.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width: 35%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
+.li-button {
+  width: 25%;
+  height: 45px;
+  text-align: center;
+  font-family: monospace;
+  background: #4169e1;
+  color: white;
+  font-size: 23px;
+  border: none;
 }
-
-#myUL {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  width: 35%;
+@media (max-width: 575.98px) {
+  .lineblock {
+    margin-bottom: 22px;
+  }
+  .lineblock,
+  .button-register {
+    width: 45%;
+    height: 38px;
+  }
+  .button-register {
+    font-size: 21px;
+  }
+  #error {
+    left: 33%;
+    font-size: 11px;
+    top: 53%;
+  }
+  #error-block {
+    right: 33%;
+    font-size: 11px;
+    top: 69%;
+  }
 }
-
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  display: block
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lineblock,
+  .button-register {
+    width: 45%;
+    height: 40px;
+    margin-bottom: 27px;
+  }
+  #error {
+    left: 32%;
+    font-size: 13px;
+    top: 48%;
+  }
+  #error-block {
+    left: 32%;
+    font-size: 13px;
+    top: 63%;
+  }
 }
-
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .lineblock,
+  .button-register {
+    width: 40%;
+    height: 41px;
+  }
+  #error,
+  #error-block {
+    right: 4%;
+  }
+  #error-block {
+    top: 58%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .lineblock,
+  .button-register {
+    width: 33%;
+  }
+  #error {
+    right: 10%;
+  }
+  #error-block {
+    right: 10%;
+    top: 58%;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1400px) {
 }

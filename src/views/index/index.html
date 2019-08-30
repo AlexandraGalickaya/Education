@@ -5,59 +5,31 @@
     <meta charset="utf-8" />
     <title>TypeScript HTML App</title>
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
-
     <link rel="stylesheet" href="../../css/style.css">
+
     <script type="text/javascript" src="../../../dist/libs/jQuery.min.js"></script>
     <script type="text/javascript" src="../../../dist/service/data.service.js"></script>
     <script type="text/javascript" src="../../../dist/views/index/index.js"></script>
     <script type="text/javascript" src="../../../dist/views/login/login.js"></script>
+    <script type="text/javascript" src="../../../dist/views/datelocal/datelocal.js"></script>
     <script type="text/javascript" src="../../../dist/libs/bootstrap.min.js"></script>
 
 
 </head>
 
 <body>
-    <form name="myForm" onsubmit="return  validateForm()" method="post">
+    <form class="nameForm" name="myForm" method="post">
         <div class="lineinput">
-            <input class="lineblock" name="email" type="text" id="emailInput"
-                onblur="indexComponent.checkValidateEmail()" placeholder="Email">
-            <input class="lineblock" name="password" type="password" id="passwordInput"
-                onblur="indexComponent.checkValidatePassword()" placeholder="Password">
-            <a class="button-register" type="submit" onclick="indexComponent.register()">Register</a>
+            <h3 class="type">LOGIN</h3>
+            <input class="lineblock" name="email" type="text" id="emailInput" onblur="indexComponent.checkValidateEmail()" onfocus="indexComponent.checkValidateEmail()" placeholder="Email">
+            <input class="lineblock" name="password" type="password" id="passwordInput" onblur="indexComponent.checkValidatePassword()" onfocus="indexComponent.checkValidateEmail()"  placeholder="Password">
+            <button class="button-register" type="button" onclick="indexComponent.register()" href="#">REGISTER</button>
             <div id="error"></div>
+            <div id="error-block"></div>
+            <div id="result"></div>
+            <div id="result-search"></div>
         </div>
     </form>
-    <div id="result"></div>
-
-    <div class="radioinput">
-        <label class="radioblock"><input type="radio" name="fames" id="man" value="man">M</label>
-        <label class="radioblock"><input type="radio" name="fames" id="women" value="women">W</label>
-    </div>
-
-    <div class="box-block">
-        <label class="box-container"><input class="box" type="checkbox" name="Sum" value="1" id="checkbox1">1</label>
-        <label class="box-container"><input class="box" type="checkbox" name="Sum" value="2" id="checkbox2" />2</label>
-        <label class="box-container"><input class="box" type="checkbox" name="Sum" value="3" id="checkbox3">3</label>
-        <label class="box-container"><input class="box" type="checkbox" name="Sum" value="4" id="checkbox4">4</label>
-        <label class="box-container"><input class="box" type="checkbox" name="Sum" value="5" id="checkbox5">5</label>
-    </div>
-    <button class="click-button" onclick="indexComponent.getCheckedCheckBoxes()"> Кто выбран? </button>
-    <button class="sort-button" id="sort" type="button" onclick="indexComponent.bubbleSort()"> Sort </button>
-    <input type="text" id="myInput" onkeyup="indexComponent.myFunction()" placeholder="Search for names..">
-
-    <ul id="myUL">
-        <li><a href="#">Adele</a></li>
-        <li><a href="#">Agnes</a></li>
-
-        <li><a href="#">Billy</a></li>
-        <li><a href="#">Bob</a></li>
-
-        <li><a href="#">Calvin</a></li>
-        <li><a href="#">Christina</a></li>
-        <li><a href="#">Cindy</a></li>
-    </ul>
-
-
 </body>
 
 </html>

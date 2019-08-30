@@ -1,7 +1,7 @@
 interface IUser {
     email: string;
     password: string;
-    gender: string;
+    // gender: string;
     // quantity: string;
 }
 
