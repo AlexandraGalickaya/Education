@@ -12,11 +12,13 @@
 </head>
 
 <body>
-    <div id="error"></div>
-    <div id="result">
-        <ul id="myList">
-        </ul>
-        <button class="li-button" onclick="dateLocal.dateLocal()">Try it</button>
+    <div class="filter-block">
+        <div id="filter">
+            <h3 class="type">USERS</h3>
+            <input type="text" id="emailUser" onkeyup="functionFilter()" placeholder="Users">
+            <button class="li-button" onclick="dateLocal.dateLocal()">Users</button>
+            <ul id="myList"></ul>
+        </div>
     </div>
 </body>
 

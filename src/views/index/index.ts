@@ -85,12 +85,9 @@ class IndexComponent {
     validateEmail() {
         let users: IUser[] = JSON.parse(localStorage.getItem('USERS'));
         for (let i = 0; i < users.length; i++) {
-            debugger
             console.log(this.inputEmail.value);
             let email = users[i].email;
             if (this.inputEmail.value.toString().toLocaleLowerCase() == email.toLocaleLowerCase()) {
-                // localStorage.setItem('USERS', JSON.stringify(users));
-
                 return false;
             }
         }

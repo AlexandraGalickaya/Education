@@ -3,6 +3,9 @@
   font-family: monospace;
   font-size: 35px;
 }
+.nameForm{
+  position: relative;
+}
 
 .lineinput {
   display: flex;
@@ -39,9 +42,6 @@
   font-size: 25px;
   padding: 0px 10px;
 }
-.nameForm {
-  position: relative;
-}
 #error {
   position: absolute;
   right: 26%;
@@ -55,14 +55,40 @@
   color: red;
 }
 .li-button {
-  width: 25%;
-  height: 45px;
+  width: 10%;
+  height: 34px;
   text-align: center;
   font-family: monospace;
   background: #4169e1;
   color: white;
   font-size: 23px;
   border: none;
+}
+#filter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10%;
+}
+#emailUser{
+  width: 25%;
+  height: 45px;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  font-family: monospace;
+  background: #f8f8ff;
+  color: #a9a9a9;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #a9a9a9;
+}
+#myList{
+  margin-top: 16px;
+  font-family: monospace;
+  font-size: 16px;
+  color: #3d3d5c;
+  list-style: none;
+  font-weight: 600;
 }
 @media (max-width: 575.98px) {
   .lineblock {
@@ -86,6 +112,12 @@
     font-size: 11px;
     top: 69%;
   }
+  #emailUser{
+    width: 55%;
+  }
+  .li-button{
+    width: 25%;
+  }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .lineblock,
@@ -104,6 +136,12 @@
     font-size: 13px;
     top: 63%;
   }
+  #emailUser{
+    width: 43%;
+  }
+  .li-button{
+    width: 20%;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .lineblock,
@@ -117,6 +155,12 @@
   }
   #error-block {
     top: 58%;
+  }
+  #emailUser{
+    width: 40%;
+  }
+  .li-button{
+    width: 15%;
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {

@@ -83,11 +83,9 @@ var IndexComponent = /** @class */ (function () {
     IndexComponent.prototype.validateEmail = function () {
         var users = JSON.parse(localStorage.getItem('USERS'));
         for (var i = 0; i < users.length; i++) {
-            debugger;
             console.log(this.inputEmail.value);
             var email = users[i].email;
             if (this.inputEmail.value.toString().toLocaleLowerCase() == email.toLocaleLowerCase()) {
-                // localStorage.setItem('USERS', JSON.stringify(users));
                 return false;
             }
         }
