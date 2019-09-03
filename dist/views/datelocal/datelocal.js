@@ -1,8 +1,21 @@
 var DateLocal = /** @class */ (function () {
     function DateLocal() {
+        this.inputValue = document.getElementById('emailUser');
     }
-    DateLocal.prototype.dateLocal = function () {
+    DateLocal.prototype.getValue = function () {
+        this.inputValue = document.getElementById('emailUser');
+    };
+    DateLocal.prototype.sortData = function () {
         var users = JSON.parse(localStorage.getItem('USERS'));
+        for (var j = 0; j < users.length; j++) {
+            for (var i = 0; i < users.length - j - 1; i++) {
+                if (users[i].email > users[i + 1].email) {
+                    var temp = users[i];
+                    users[i] = users[i + 1];
+                    users[i + 1] = temp;
+                }
+            }
+        }
         for (var i = 0; i < users.length; i++) {
             var node = document.createElement("li");
             node.innerHTML = users[i].email;
@@ -10,15 +23,15 @@ var DateLocal = /** @class */ (function () {
         }
     };
     DateLocal.prototype.functionFilter = function () {
-        var input, filter, ul, li, a, i, txtValue;
-        input = document.getElementById("myInput");
+        var array = [];
+        var input, filter, ul, li, txtValue;
+        input = document.getElementById("emailUser");
         filter = input.value.toUpperCase();
-        ul = document.getElementById("myUL");
+        ul = document.getElementById("myList");
         li = ul.getElementsByTagName("li");
-        for (i = 0; i < li.length; i++) {
-            a = li[i].getElementsByTagName("a")[0];
-            txtValue = a.textContent || a.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        for (var i = 0; i < li.length; i++) {
+            txtValue = li[i].innerText.toUpperCase();
+            if (txtValue.indexOf(filter) > -1) {
                 li[i].style.display = "";
             }
             else {

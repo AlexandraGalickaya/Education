@@ -3,7 +3,7 @@
   font-family: monospace;
   font-size: 35px;
 }
-.nameForm{
+.nameForm {
   position: relative;
 }
 
@@ -63,14 +63,15 @@
   color: white;
   font-size: 23px;
   border: none;
+  margin-bottom: 10px;
 }
-#filter{
+#filter {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10%;
 }
-#emailUser{
+#emailUser {
   width: 25%;
   height: 45px;
   margin-bottom: 15px;
@@ -82,13 +83,19 @@
   font-weight: 500;
   border: 1px solid #a9a9a9;
 }
-#myList{
-  margin-top: 16px;
+#myList {
+  margin-top: 17px;
   font-family: monospace;
   font-size: 16px;
   color: #3d3d5c;
   list-style: none;
   font-weight: 600;
+  height: auto;
+  width: auto;
+}
+li {
+  height: 40px;
+  width: 130%;
 }
 @media (max-width: 575.98px) {
   .lineblock {
@@ -112,10 +119,10 @@
     font-size: 11px;
     top: 69%;
   }
-  #emailUser{
+  #emailUser {
     width: 55%;
   }
-  .li-button{
+  .li-button {
     width: 25%;
   }
 }
@@ -136,10 +143,10 @@
     font-size: 13px;
     top: 63%;
   }
-  #emailUser{
+  #emailUser {
     width: 43%;
   }
-  .li-button{
+  .li-button {
     width: 20%;
   }
 }
@@ -156,10 +163,10 @@
   #error-block {
     top: 58%;
   }
-  #emailUser{
+  #emailUser {
     width: 40%;
   }
-  .li-button{
+  .li-button {
     width: 15%;
   }
 }
