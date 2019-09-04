@@ -1,21 +1,18 @@
 var DateLocal = /** @class */ (function () {
     function DateLocal() {
-        this.inputValue = document.getElementById('emailUser');
+        this.array = [];
     }
-    DateLocal.prototype.getValue = function () {
-        this.inputValue = document.getElementById('emailUser');
-    };
     DateLocal.prototype.sortData = function () {
         var users = JSON.parse(localStorage.getItem('USERS'));
-        for (var j = 0; j < users.length; j++) {
-            for (var i = 0; i < users.length - j - 1; i++) {
-                if (users[i].email > users[i + 1].email) {
-                    var temp = users[i];
-                    users[i] = users[i + 1];
-                    users[i + 1] = temp;
-                }
-            }
-        }
+        // for (let j = 0; j < users.length; j++) {
+        //     for (let i = 0; i < users.length - j - 1; i++) {
+        //         if (users[i].email > users[i + 1].email) {
+        //             let temp = users[i];
+        //             users[i] = users[i + 1];
+        //             users[i + 1] = temp;
+        //         }
+        //     }
+        // }
         for (var i = 0; i < users.length; i++) {
             var node = document.createElement("li");
             node.innerHTML = users[i].email;
@@ -23,20 +20,37 @@ var DateLocal = /** @class */ (function () {
         }
     };
     DateLocal.prototype.functionFilter = function () {
-        var array = [];
-        var input, filter, ul, li, txtValue;
+        var input, filter, ul, li, email;
         input = document.getElementById("emailUser");
         filter = input.value.toUpperCase();
         ul = document.getElementById("myList");
         li = ul.getElementsByTagName("li");
         for (var i = 0; i < li.length; i++) {
-            txtValue = li[i].innerText.toUpperCase();
-            if (txtValue.indexOf(filter) > -1) {
-                li[i].style.display = "";
+            email = li[i].innerText.toUpperCase();
+            if (email.indexOf(filter) > -1) {
+                li[i].style.display = "block";
+                this.array.push({ email: email });
             }
             else {
                 li[i].style.display = "none";
             }
+        }
+    };
+    DateLocal.prototype.functionSort = function () {
+        this.newArray = this.array;
+        for (var j = 0; j < this.newArray.length; j++) {
+            for (var i = 0; i < this.newArray.length - j - 1; i++) {
+                if (JSON.stringify(this.newArray[i]) > JSON.stringify(this.newArray[i + 1])) {
+                    var temp = this.newArray[i];
+                    this.newArray[i] = this.newArray[i + 1];
+                    this.newArray[i + 1] = temp;
+                }
+            }
+        }
+        for (var i = 0; i < this.newArray.length; i++) {
+            var node = document.createElement("li");
+            node.innerHTML = JSON.stringify(this.newArray[i]);
+            document.getElementById("myList").appendChild(node);
         }
     };
     return DateLocal;
