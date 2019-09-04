@@ -22,14 +22,17 @@ var DateLocal = /** @class */ (function () {
     DateLocal.prototype.functionFilter = function () {
         var input, filter, ul, li, email;
         input = document.getElementById("emailUser");
-        filter = input.value.toUpperCase();
+        filter = input.value.toLowerCase();
         ul = document.getElementById("myList");
         li = ul.getElementsByTagName("li");
         for (var i = 0; i < li.length; i++) {
-            email = li[i].innerText.toUpperCase();
+            email = li[i].innerText.toLowerCase();
             if (email.indexOf(filter) > -1) {
                 li[i].style.display = "block";
                 this.array.push({ email: email });
+                if (this.newArray) {
+                    li[i].style.display = "none";
+                }
             }
             else {
                 li[i].style.display = "none";
@@ -47,10 +50,19 @@ var DateLocal = /** @class */ (function () {
                 }
             }
         }
-        for (var i = 0; i < this.newArray.length; i++) {
-            var node = document.createElement("li");
-            node.innerHTML = JSON.stringify(this.newArray[i]);
-            document.getElementById("myList").appendChild(node);
+        var ul = document.getElementById("myList");
+        var li = ul.getElementsByTagName("li");
+        for (var i = 0; i < li.length; i++) {
+            if (this.array) {
+                li[i].style.display = "none";
+            }
+        }
+        if (this.newArray) {
+            for (var i = 0; i < this.newArray.length; i++) {
+                var node = document.createElement("li");
+                node.innerHTML = JSON.stringify(this.newArray[i]);
+                document.getElementById("myList").appendChild(node);
+            }
         }
     };
     return DateLocal;
